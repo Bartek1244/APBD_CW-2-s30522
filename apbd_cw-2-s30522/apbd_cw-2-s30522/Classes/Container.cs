@@ -2,25 +2,25 @@
 
 namespace apbd_cw_2_s30522.Classes;
 
-public abstract class Container(char type, double loadWeight, double height, double containerWeight, double depth, double maxWeight)
+public abstract class Container(char type, double height, double containerWeight, double depth, double maxWeight)
 {
     private static int _nextId = 1;
 
     public string SerialNumber { get; } = $"KON-{type}-{_nextId++}";
-    public double LoadWeight { get; protected set; } = loadWeight;
+    public double LoadWeight { get; protected set; }
     public double Height { get; protected set; } = height;
     public double ContainerWeight { get; protected set; } = containerWeight;
     public double Depth { get; protected set; } = depth;
     public double MaxWeight { get; protected set; } = maxWeight;
 
-    public virtual void Load(int loadWeight)
+    public virtual void Load(int addingLoadWeight)
     {
-        if (ContainerWeight < loadWeight)
+        if (ContainerWeight < LoadWeight + addingLoadWeight)
         {
-            throw new OverfillException($"load weight ({loadWeight}) > container weight ({ContainerWeight})");
+            throw new OverfillException($"load weight ({LoadWeight + addingLoadWeight}) > container weight ({ContainerWeight})");
         }
         
-        LoadWeight = loadWeight;
+        LoadWeight += addingLoadWeight;
     }
     
     public virtual void Unload()
