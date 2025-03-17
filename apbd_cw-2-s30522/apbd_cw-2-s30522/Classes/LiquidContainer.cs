@@ -2,8 +2,8 @@
 
 namespace apbd_cw_2_s30522.Classes;
 
-public class LiquidContainer(double height, double containerWeight, double depth, double maxWeight, bool hazardous) 
-    : Container('L', height, containerWeight, depth, maxWeight), IHazardNotifier
+public class LiquidContainer(double height, double depth,  double containerWeight, double maxWeight, bool hazardous) 
+    : Container('L', height, depth, containerWeight, maxWeight), IHazardNotifier
 {
     public bool Hazardous { get; set; } = hazardous;
 

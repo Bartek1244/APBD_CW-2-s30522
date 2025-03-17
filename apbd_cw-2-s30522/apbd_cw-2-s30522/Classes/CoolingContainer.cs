@@ -1,10 +1,10 @@
 ﻿namespace apbd_cw_2_s30522.Classes;
 
-public class CoolingContainer(double height, double containerWeight, double depth, double maxWeight, 
-    Product product, double temperature) : Container('C', height, containerWeight, depth, maxWeight)
+public class CoolingContainer(double height, double depth, double containerWeight,  double maxWeight, 
+    Product product) : Container('C', height, depth, containerWeight, maxWeight)
 {
     private Product _product = product;
-    private double _temperature = temperature;
+    private double _temperature = product.MinTemperature;
     
     public Product Product
     {

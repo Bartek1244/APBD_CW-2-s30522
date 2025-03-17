@@ -2,7 +2,7 @@
 
 namespace apbd_cw_2_s30522.Classes;
 
-public abstract class Container(char type, double height, double containerWeight, double depth, double maxWeight)
+public abstract class Container(char type, double height,double depth, double containerWeight, double maxWeight)
 {
     private static int _nextId = 1;
 
@@ -15,7 +15,7 @@ public abstract class Container(char type, double height, double containerWeight
 
     public virtual void Load(int addingLoadWeight)
     {
-        if (ContainerWeight < LoadWeight + addingLoadWeight)
+        if (MaxWeight < LoadWeight + addingLoadWeight)
         {
             throw new OverfillException($"load weight ({LoadWeight + addingLoadWeight}) > container weight ({ContainerWeight})");
         }
@@ -28,9 +28,14 @@ public abstract class Container(char type, double height, double containerWeight
         LoadWeight = 0;
     }
 
+    public double Weight()
+    {
+        return ContainerWeight + LoadWeight;
+    }
+    
     public override string ToString()
     {
-        return $"<[{SerialNumber}]: height: {Height}; depth: {Depth}; containerWeight: {ContainerWeight}; maxWeight: {MaxWeight}>";
+        return $"[{SerialNumber}]: height: {Height}; depth: {Depth}; containerWeight: {LoadWeight}; maxWeight: {MaxWeight}";
         
     }
 }

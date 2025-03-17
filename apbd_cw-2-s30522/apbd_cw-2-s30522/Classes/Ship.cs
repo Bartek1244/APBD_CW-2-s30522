@@ -17,7 +17,7 @@ public class Ship(double maxVelocity, int maxContainersQty, double maxWeight)
             return;
         }
 
-        if (CurrentWeight() + container.LoadWeight > MaxWeight)
+        if (CurrentWeight() + container.Weight() > MaxWeight)
         {
             Console.WriteLine("Ship max weight would be exceeded, cannot add container. Operation aborted.");
             return;
@@ -67,7 +67,7 @@ public class Ship(double maxVelocity, int maxContainersQty, double maxWeight)
             return;
         }
 
-        if (CurrentWeight() - container.LoadWeight + newContainer.LoadWeight > MaxWeight)
+        if (CurrentWeight() - container.Weight() + newContainer.Weight() > MaxWeight)
         {
             Console.WriteLine("Ship max weight would be exceeded, cannot swap container. Operation aborted.");
         }
@@ -92,7 +92,7 @@ public class Ship(double maxVelocity, int maxContainersQty, double maxWeight)
             return;
         }
 
-        if (newShip.CurrentWeight() + container.LoadWeight > newShip.MaxWeight)
+        if (newShip.CurrentWeight() + container.Weight() > newShip.MaxWeight)
         {
             Console.WriteLine("Other ship max weight would be exceeded, cannot move container. Operation aborted.");
             return;
@@ -129,7 +129,7 @@ public class Ship(double maxVelocity, int maxContainersQty, double maxWeight)
         
         foreach (Container container in containers)
         {
-            weight += container.LoadWeight;
+            weight += container.Weight();
         }
         
         return weight;
@@ -137,14 +137,12 @@ public class Ship(double maxVelocity, int maxContainersQty, double maxWeight)
 
     public override string ToString()
     {
-        string result = $"<maxVelocity: {MaxVelocity}; maxContainerQty: {MaxContainersQty}; maxWeight: {MaxWeight}; Containers: ";
+        string result = $"maxVelocity: {MaxVelocity}; maxContainerQty: {MaxContainersQty}; maxWeight: {MaxWeight}; Containers: ";
         
         foreach (Container container in Containers)
         {
-            result += container + " ";
+            result += container.SerialNumber + " ";
         }
-
-        result += ">";
         
         return result;
     }

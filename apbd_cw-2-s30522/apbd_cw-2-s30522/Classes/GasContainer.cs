@@ -2,8 +2,8 @@
 
 namespace apbd_cw_2_s30522.Classes;
 
-public class GasContainer(double height, double containerWeight, double depth, double maxWeight) 
-    : Container('G', height, containerWeight, depth, maxWeight), IHazardNotifier
+public class GasContainer(double height, double depth,  double containerWeight, double maxWeight) 
+    : Container('G', height, depth, containerWeight, maxWeight), IHazardNotifier
 {
     public override void Unload()
     {
