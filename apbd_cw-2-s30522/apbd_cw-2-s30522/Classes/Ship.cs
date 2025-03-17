@@ -137,7 +137,8 @@ public class Ship(double maxVelocity, int maxContainersQty, double maxWeight)
 
     public override string ToString()
     {
-        string result = $"maxVelocity: {MaxVelocity}; maxContainerQty: {MaxContainersQty}; maxWeight: {MaxWeight}; Containers: ";
+        string result = $"[SHIP] maxVelocity: {MaxVelocity}; maxContainerQty: {MaxContainersQty}; maxWeight: {MaxWeight}; " +
+                        $"currentWeight: {CurrentWeight()}; Containers: ";
         
         foreach (Container container in Containers)
         {
