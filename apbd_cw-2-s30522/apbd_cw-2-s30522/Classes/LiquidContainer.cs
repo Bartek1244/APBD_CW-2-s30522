@@ -30,4 +30,9 @@ public class LiquidContainer(double height, double containerWeight, double depth
     {
         Console.WriteLine(message);
     }
+
+    public override string ToString()
+    {
+        return base.ToString() + $"; hazardous: {Hazardous}";
+    }
 }

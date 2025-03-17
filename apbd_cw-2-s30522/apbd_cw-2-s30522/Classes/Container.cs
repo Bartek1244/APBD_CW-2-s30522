@@ -27,5 +27,10 @@ public abstract class Container(char type, double height, double containerWeight
     {
         LoadWeight = 0;
     }
-    
+
+    public override string ToString()
+    {
+        return $"<[{SerialNumber}]: height: {Height}; depth: {Depth}; containerWeight: {ContainerWeight}; maxWeight: {MaxWeight}>";
+        
+    }
 }

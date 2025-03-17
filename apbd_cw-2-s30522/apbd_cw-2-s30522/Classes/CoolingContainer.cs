@@ -31,6 +31,8 @@ public class CoolingContainer(double height, double containerWeight, double dept
         }
     }
 
-
-
+    public override string ToString()
+    {
+        return base.ToString() + $"; product: {_product}; temperature: {_temperature}";
+    }
 }

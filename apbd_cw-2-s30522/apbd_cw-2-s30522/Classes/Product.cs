@@ -4,4 +4,9 @@ public class Product(string name, double minTemperature)
 {
     public string Name { get; set; } = name;
     public double MinTemperature { get; set; } = minTemperature;
+
+    public override string ToString()
+    {
+        return $"<[{Name}]: minTemperature: {MinTemperature}>";
+    }
 }
